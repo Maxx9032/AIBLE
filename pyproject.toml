@@ -1,0 +1,33 @@
+[project]
+name = "aible"
+version = "0.1.0"
+description = "Local rule-compliant rewriter: PDF rule parser + FastAPI sidecar for a Word add-in. Fully offline."
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.110",
+    "uvicorn[standard]>=0.27",
+    "httpx>=0.27",
+    "pydantic>=2.6",
+    "pymupdf>=1.24",
+    "pytesseract>=0.3.10",
+    "pillow>=10.0",
+    "pyspellchecker>=0.8",
+    "textstat>=0.7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.4"]
+
+[project.scripts]
+aible-parse-rules = "rule_parser.parse_rules:main"
+aible-sidecar = "sidecar.main:run"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["rule_parser", "sidecar"]
+
+[tool.setuptools.package-data]
+sidecar = ["static/*", "rules-seed.json", "rules.json"]

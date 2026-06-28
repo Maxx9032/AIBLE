@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+
+# Node / Word add-in
+node_modules/
+dist/
+.webpack/
+
+# User content — never commit
+samples/
+out/
+*.docx
+*.doc
+*.pdf
+!docs/*.pdf
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
